@@ -2,9 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
 import transactionRoutes from './routes/transactionRoutes.js';
-app.use('/api/transactions', transactionRoutes);
-const app = express();
+import reportRoutes from './routes/reportRoutes.js';
 
+const app = express();
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/reports', reportRoutes);
 app.use(cors({ origin: process.env.CLIENT_ORIGIN }));
 app.use(express.json());
 
